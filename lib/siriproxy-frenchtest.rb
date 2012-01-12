@@ -21,8 +21,9 @@ class SiriProxy::Plugin::FrenchTest < SiriProxy::Plugin
     request_completed #always complete your request! Otherwise the phone will "spin" at the user!
   end
 
-  listen_for /six plus ([0-9,]*[0-9])/i do |number1|
-    say "Ca fait : #{number1+6}"
+  listen_for /([0-9,]*[0-9]) plus ([0-9,]*[0-9])/i do |number1,number2|
+    res = number1+number2
+    say "Ca fait : #{res}"
     
     request_completed #always complete your request! Otherwise the phone will "spin" at the user!
   end
