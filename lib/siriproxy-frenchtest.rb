@@ -16,7 +16,7 @@ class SiriProxy::Plugin::FrenchTest < SiriProxy::Plugin
   end
 
   listen_for /bonjour/i do 
-    say "Salut :D", spoken: "Bien le bonjour mon chère ! Quelle belle journée n'est-ce pas ?"
+    say "Salut :D", spoken: "Bien le bonjour! Quelle belle journée n'est-ce pas?"
     
     request_completed #always complete your request! Otherwise the phone will "spin" at the user!
   end
