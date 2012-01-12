@@ -15,8 +15,8 @@ class SiriProxy::Plugin::Frenchtest < SiriProxy::Plugin
   end
   
   #demonstrate capturing data from the user (e.x. "Siri proxy number 15")
-  listen_for /calcul ([0-9]+) plus ([0-9,]*[0-9])/i do |number1,number2|
-    say "Ca fait : #{number1+number2}"
+  listen_for /calcul plus ([0-9,]+)/i do |number1|
+    say "Ca fait : #{number1}"
     
     request_completed #always complete your request! Otherwise the phone will "spin" at the user!
   end
