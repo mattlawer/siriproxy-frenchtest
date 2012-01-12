@@ -15,8 +15,14 @@ class SiriProxy::Plugin::FrenchTest < SiriProxy::Plugin
     #if you have custom configuration options, process them here!
   end
 
-  listen_for /calcul ([0-9,]*[0-9])/i do |number|
-    say "Ca fait : #{number}"
+  listen_for /bonjour/i do 
+    say "Salut :D", spoken: "Bien le bonjour mon chère ! Quelle belle journée n'est-ce pas ?"
+    
+    request_completed #always complete your request! Otherwise the phone will "spin" at the user!
+  end
+
+  listen_for /six plus ([0-9,]*[0-9])/i do |number1|
+    say "Ca fait : #{number1+6}"
     
     request_completed #always complete your request! Otherwise the phone will "spin" at the user!
   end
