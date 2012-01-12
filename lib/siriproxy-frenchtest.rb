@@ -2,8 +2,6 @@ require 'cora'
 require 'siri_objects'
 require 'pp'
 
-require 'rbosa'
-
 #######
 # This is a "hello world" style plugin. It simply intercepts the phrase "test siri proxy" and responds
 # with a message about the proxy being up and running (along with a couple other core features). This 
@@ -47,20 +45,6 @@ class SiriProxy::Plugin::FrenchTest < SiriProxy::Plugin
   listen_for /([0-9,]*[0-9])\/([0-9,]*[0-9])/i do |number1,number2|
     res = (number1.to_f/number2.to_f).to_f
     say "#{number1} / #{number2} = #{res}", spoken: "Ca fait #{res}"
-    
-    request_completed #always complete your request! Otherwise the phone will "spin" at the user!
-  end
-
-  listen_for /itunes lire/i do
-    app = OSA.app('iTunes') 
-    app.play
-      
-    request_completed #always complete your request! Otherwise the phone will "spin" at the user!
-  end
-
-  listen_for /itunes (stop)|(pause)/i do
-    app = OSA.app('iTunes') 
-    app.pause
     
     request_completed #always complete your request! Otherwise the phone will "spin" at the user!
   end
