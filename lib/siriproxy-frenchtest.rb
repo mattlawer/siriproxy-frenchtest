@@ -1,14 +1,15 @@
 require 'cora'
 require 'siri_objects'
 require 'pp'
-require 'iconv'
+
+require 'rbosa'
 
 #######
 # This is a "hello world" style plugin. It simply intercepts the phrase "test siri proxy" and responds
 # with a message about the proxy being up and running (along with a couple other core features). This 
 # is good base code for other plugins.
 # 
-# Remember to add other plugins to the "config.yml" file if you create them!
+# Remember to add the plugin to the "config.yml" !
 ######
 
 class SiriProxy::Plugin::FrenchTest < SiriProxy::Plugin
@@ -50,5 +51,19 @@ class SiriProxy::Plugin::FrenchTest < SiriProxy::Plugin
     request_completed #always complete your request! Otherwise the phone will "spin" at the user!
   end
 
+  listen_for /itunes lire/i do
+    app = OSA.app('iTunes') 
+    app.play
+      
+    request_completed #always complete your request! Otherwise the phone will "spin" at the user!
+  end
+
+  listen_for /itunes (stop)|(pause)/i do
+    app = OSA.app('iTunes') 
+    app.pause
+    
+    request_completed #always complete your request! Otherwise the phone will "spin" at the user!
+  end
+    
 
 end
