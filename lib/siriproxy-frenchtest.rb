@@ -36,7 +36,7 @@ class SiriProxy::Plugin::FrenchTest < SiriProxy::Plugin
     request_completed #always complete your request! Otherwise the phone will "spin" at the user!
   end
 
-  listen_for /([0-9,]*[0-9]) X ([0-9,]*[0-9])/i do |number1,number2| #the x is an ASCII char... FUUU
+  listen_for /([0-9,]*[0-9]) x ([0-9,]*[0-9])/i do |number1,number2| #the x is an ASCII char... FUUU
     res = (number1.to_f*number2.to_f).to_f
     say "#{number1} x #{number2} = #{res}", spoken: "Ca fait #{res}"
     
@@ -44,7 +44,7 @@ class SiriProxy::Plugin::FrenchTest < SiriProxy::Plugin
   end
 
   listen_for /([0-9,]*[0-9])\/([0-9,]*[0-9])/i do |number1,number2|
-    res = (number1.to_f*number2.to_f).to_f
+    res = (number1.to_f/number2.to_f).to_f
     say "#{number1} / #{number2} = #{res}", spoken: "Ca fait #{res}"
     
     request_completed #always complete your request! Otherwise the phone will "spin" at the user!
