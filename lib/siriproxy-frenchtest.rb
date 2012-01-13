@@ -53,7 +53,8 @@ class SiriProxy::Plugin::FrenchTest < SiriProxy::Plugin
     r = Random.rand(3)
       case r  
           when 0  
-          say "Le chat est mort !", spoken: "le chat de schrodinger est mort"
+          say "Le chat est mort !", spoken: "le chat de schrodingHer est mort"
+          #le H pour la prononciation 
           when 1  
           say "Le chat est vivant !", spoken: "le chat de schrodinger est vivant"
           else  
@@ -62,6 +63,60 @@ class SiriProxy::Plugin::FrenchTest < SiriProxy::Plugin
     
     request_completed #always complete your request! Otherwise the phone will "spin" at the user!
   end
+
+  listen_for /qui (.*) plus petit/i do
+    say "Euuu... je sais pas trop.", spoken: "Mais c'est Nicolas Sarkozy !"
+    request_completed #always complete your request! Otherwise the phone will "spin" at the user!
+  end
+
+  listen_for /(.*)blague/i do
+      
+    blagues = ["blague1",
+      "blague2",
+      "blague3",
+      "blague4"]
+      
+    r = Random.rand(blagues.length)
+    say blagues[r]
+    request_completed #always complete your request! Otherwise the phone will "spin" at the user!
+  end
+
+  listen_for /(.*)citation/i do
+    
+    citations = ["citation1",
+    "citation2",
+    "citation3",
+    "citation4"]
+      
+    r = Random.rand(citations.length)
+    say citations[r]
+    request_completed #always complete your request! Otherwise the phone will "spin" at the user!
+  end
+    
+  listen_for /chuck|chuck norris/i do
+    
+      chucks = ["Certaines personnes portent un pyjama Superman. Superman porte un pyjama Chuck Norris.",
+      "Chuck Norris ne se mouille pas, c'est l'eau qui se Chuck Norris.",
+      "Chuck Norris et Superman ont fait un bras de fer, le perdant devait mettre son slip par dessus son pantalon.",
+      "Chuck Norris peut gagner une partie de puissance 4 en trois coups.",
+      "Un jour, Chuck Norris a perdu son alliance. Depuis c'est le bordel dans les terres du milieu...",
+      "Chuck Norris fait pleurer les oignons.",
+      "Quand Google ne trouve pas quelque chose, il demande a Chuck Norris.",
+      "Chuck Norris sait parler le braille.",
+      "Chuck Norris est la raison pour laquelle Charlie se cache.",
+      "Chuck Norris peut encercler ses ennemis. Tout seul.",
+      "Chuck Norris mange les emballages des carambars. On ne blague pas avec Chuck Norris..",
+      "Chuck Norris peut taguer le mur du son.",
+      "Chuck Norris peut te faire passer un sale quart d'heure en 8 minutes.",
+      "Chuck Norris aime la vie. Une chance pour elle.",
+      "Chuck Norris a fini Super Mario Bros sans sauter."]
+      
+    r = Random.rand(chucks.length)
+    say chucks[r]
+    request_completed #always complete your request! Otherwise the phone will "spin" at the user!
+  end
+
+
     
 
 end
