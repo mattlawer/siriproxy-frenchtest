@@ -71,10 +71,10 @@ class SiriProxy::Plugin::FrenchTest < SiriProxy::Plugin
 
   listen_for /(.*)blague/i do
       
-    blagues = ["blague1",
-      "blague2",
-      "blague3",
-      "blague4"]
+      blagues = ["Comment appelle-t-on une blonde avec 2 neurones ? \nUne femme enceinte !",
+      "Quelle est la ressemblance entre les blondes et les tortues ? \nToutes les deux se font baiser quand elles sont sur leur dos",
+      "Pourquoi les Belges apportent-ils un fusil aux toilettes ? \nPour chasser les mauvaises odeurs.",
+      "Pourquoi les Belges sont-ils en pyjama sur leurs motos ? \nPour mieux se coucher dans les virages."]
       
     r = Random.rand(blagues.length)
     say blagues[r]
@@ -83,10 +83,12 @@ class SiriProxy::Plugin::FrenchTest < SiriProxy::Plugin
 
   listen_for /(.*)citation/i do
     
-    citations = ["citation1",
-    "citation2",
-    "citation3",
-    "citation4"]
+    citations = ["La vie est comme un arc-en-ciel, il faut de la pluie et du soleil pour en voir les couleurs.",
+    " La vie offre toujours deux pentes. On grimpe ou on se laisse glisser. ",
+    "Une vie ne vaut rien, mais rien ne vaut une vie.",
+    " La vie est une maladie mortelle sexuellement transmissible.",
+    "Dieu aima les oiseaux et inventa les arbres. L'homme aima les oiseaux et inventa les cages.",
+    "Chacun tire son plaisir de l'instrument dont il joue le mieux."]
       
     r = Random.rand(citations.length)
     say citations[r]
