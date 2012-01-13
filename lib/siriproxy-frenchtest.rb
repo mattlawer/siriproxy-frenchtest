@@ -48,6 +48,20 @@ class SiriProxy::Plugin::FrenchTest < SiriProxy::Plugin
     
     request_completed #always complete your request! Otherwise the phone will "spin" at the user!
   end
+
+  listen_for /(minou)+|(chat)/i do
+    r = Random.rand(3)
+      case r  
+          when 0  
+          say "Le chat est mort !", spoken: "le chat de schrodinger est mort"
+          when 1  
+          say "Le chat est vivant !", spoken: "le chat de schrodinger est vivant"
+          else  
+          say "Le chat est mort vivant !", spoken: "le chat de schrodinger est mort et vivant a la fois"
+      end 
+    
+    request_completed #always complete your request! Otherwise the phone will "spin" at the user!
+  end
     
 
 end
